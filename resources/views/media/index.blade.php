@@ -56,12 +56,6 @@
                     <h3>Media archive</h3>
                     <p>This page is designed as a single place to showcase photos and videos from official programs, field visits, public meetings, and events held by the department.</p>
                 </div>
-
-                <div class="service-card" style="margin: 0;">
-                    <h3>Need to browse other services?</h3>
-                    <p>Use the same navigation bar to move between home, news, downloads, and media pages without leaving the main site layout.</p>
-                    <a href="{{ url('/') }}" class="service-link">Back to Home <i class="fas fa-chevron-right"></i></a>
-                </div>
             </div>
         </div>
     </section>

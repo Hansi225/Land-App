@@ -74,5 +74,57 @@
 
     @yield('content')
 
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>Department of Land Settlement</h2>
+                <p>Establishing guaranteed land title registration and efficient land management systems across Sri Lanka under the purview of the Ministry of Agriculture, Livestock, Land and Irrigation.</p>
+                <div class="footer-socials">
+                    <a href="#" class="footer-social-btn"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="footer-social-btn"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="footer-social-btn"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="{{ url('/#home') }}">Home</a></li>
+                    <li><a href="{{ route('about') }}">About Department</a></li>
+                    <li><a href="{{ url('/#services') }}">Bimsaviya Program</a></li>
+                    <li><a href="{{ route('news.index') }}">News and Events</a></li>
+                    <li><a href="{{ route('media.index') }}">Media Gallery</a></li>
+                    <li><a href="{{ route('downloads.index') }}">Forms &amp; Downloads</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Related Institutions</h4>
+                <ul class="footer-links">
+                    <li><a href="https://www.survey.gov.lk" target="_blank" rel="noopener">Survey Department of Sri Lanka</a></li>
+                    <li><a href="https://www.rgd.gov.lk" target="_blank" rel="noopener">Registrar General's Department</a></li>
+                    <li><a href="https://www.landcom.gov.lk" target="_blank" rel="noopener">Land Commissioner General's Dept</a></li>
+                    <li><a href="https://www.gov.lk" target="_blank" rel="noopener">Official Government Portal</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <p style="font-size: 0.875rem; margin-bottom: 0.5rem;"><i class="fas fa-map-marker-alt" style="color: #FFE066; margin-right: 0.4rem;"></i> "Mihikatha Medura", Rajamalwatta Road, Battaramulla, Sri Lanka.</p>
+                <p style="font-size: 0.875rem; margin-bottom: 0.5rem;"><i class="fas fa-phone-alt" style="color: #FFE066; margin-right: 0.4rem;"></i> +94 11 2866631</p>
+                <p style="font-size: 0.875rem;"><i class="fas fa-envelope" style="color: #FFE066; margin-right: 0.4rem;"></i> info@landsettledept.gov.lk</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div>
+                &copy; {{ date('Y') }} Department of Land Settlement, Government of Sri Lanka. All Rights Reserved.
+            </div>
+            <div>
+                Designed with <i class="fas fa-heart" style="color: #FFE066;"></i> for Public Accessibility & Modern Citizen Services
+            </div>
+        </div>
+    </footer>
+
 </body>
 </html>
