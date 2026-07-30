@@ -56,6 +56,7 @@
                 <li><a href="{{ url('/#gazettes') }}" class="nav-link" data-i18n="navGazettes">Gazettes</a></li>
                 <li><a href="{{ url('/#offices') }}" class="nav-link" data-i18n="navOffices">Regional Offices</a></li>
                 <li><a href="{{ route('news.index') }}" class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}">News and Events</a></li>
+                <li><a href="{{ route('media.index') }}" class="nav-link {{ request()->routeIs('media.*') ? 'active' : '' }}">Media Gallery</a></li>
                 <li><a href="{{ route('downloads.index') }}" class="nav-link {{ request()->routeIs('downloads.*') ? 'active' : '' }}">Forms &amp; Downloads</a></li>
                 <li><a href="{{ url('/#faqs') }}" class="nav-link">FAQs</a></li>
             </ul>

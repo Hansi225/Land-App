@@ -63,6 +63,7 @@
                 <li><a href="#gazettes" class="nav-link" data-i18n="navGazettes">Gazettes</a></li>
                 <li><a href="#offices" class="nav-link" data-i18n="navOffices">Regional Offices</a></li>
                 <li><a href="{{ route('news.index') }}" class="nav-link">News and Events</a></li>
+                <li><a href="{{ route('media.index') }}" class="nav-link">Media Gallery</a></li>
                 <li><a href="{{ route('downloads.index') }}" class="nav-link">Forms &amp; Downloads</a></li>
                 <li><a href="#faqs" class="nav-link">FAQs</a></li>
             </ul>
