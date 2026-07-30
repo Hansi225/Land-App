@@ -62,6 +62,20 @@
                 <li><a href="#services" class="nav-link" data-i18n="navServices">Services</a></li>
                 <li><a href="#gazettes" class="nav-link" data-i18n="navGazettes">Gazettes</a></li>
                 <li><a href="#offices" class="nav-link" data-i18n="navOffices">Regional Offices</a></li>
+<<<<<<< Updated upstream
+=======
+                <li><a href="{{ route('news.index') }}" class="nav-link">News and Events</a></li>
+                <li><a href="{{ route('media.index') }}" class="nav-link">Media Gallery</a></li>
+                <li><a href="{{ route('downloads.index') }}" class="nav-link">Forms &amp; Downloads</a></li>
+                <li class="nav-dropdown">
+                    <button type="button" class="nav-link nav-dropdown-toggle">Contact Us <i class="fas fa-chevron-down"></i></button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="{{ route('contact.index') }}#inquiry">Inquiry</a></li>
+                        <li><a href="{{ route('contact.index') }}#head-office">Head Office</a></li>
+                        <li><a href="{{ route('contact.index') }}#regional-office">Regional Office</a></li>
+                    </ul>
+                </li>
+>>>>>>> Stashed changes
                 <li><a href="#faqs" class="nav-link">FAQs</a></li>
             </ul>
 
