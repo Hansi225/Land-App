@@ -62,6 +62,7 @@
                 <li><a href="#services" class="nav-link" data-i18n="navServices">Services</a></li>
                 <li><a href="#gazettes" class="nav-link" data-i18n="navGazettes">Gazettes</a></li>
                 <li><a href="#offices" class="nav-link" data-i18n="navOffices">Regional Offices</a></li>
+                <li><a href="{{ route('news.index') }}" class="nav-link">News and Events</a></li>
                 <li><a href="#faqs" class="nav-link">FAQs</a></li>
             </ul>
 
