@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\DownloadsController;
 
 
 /*
@@ -37,3 +38,6 @@ Route::get('/users', function () {
 // News and Events routes
 Route::get('/news-and-events', [NewsController::class, 'index'])->name('news.index');
 Route::get('/news-and-events/{id}', [NewsController::class, 'show'])->name('news.show');
+
+// Forms and Downloads routes
+Route::get('/forms-and-downloads', [DownloadsController::class, 'index'])->name('downloads.index');
