@@ -62,6 +62,9 @@
                 <li><a href="#services" class="nav-link" data-i18n="navServices">Services</a></li>
                 <li><a href="#gazettes" class="nav-link" data-i18n="navGazettes">Gazettes</a></li>
                 <li><a href="#offices" class="nav-link" data-i18n="navOffices">Regional Offices</a></li>
+                <li><a href="{{ route('news.index') }}" class="nav-link">News and Events</a></li>
+                <li><a href="{{ route('media.index') }}" class="nav-link">Media Gallery</a></li>
+                <li><a href="{{ route('downloads.index') }}" class="nav-link">Forms &amp; Downloads</a></li>
                 <li><a href="#faqs" class="nav-link">FAQs</a></li>
             </ul>
 
@@ -167,7 +170,7 @@
                     <p>Sec 2 & 4 Settlement Notices</p>
                 </div>
             </a>
-            <a href="#downloads" class="quick-card">
+            <a href="{{ route('downloads.index') }}" class="quick-card">
                 <div class="quick-icon"><i class="fas fa-file-download"></i></div>
                 <div class="quick-info">
                     <h4>Forms & Downloads</h4>
@@ -231,7 +234,7 @@
                     </div>
                     <h3>Subdivision & Amalgamation</h3>
                     <p>Official approval and re-mapping of subdivided land allotments or merged land blocks in coordination with the Survey Department of Sri Lanka.</p>
-                    <a href="#downloads" class="service-link">Download Forms <i class="fas fa-chevron-right"></i></a>
+                    <a href="{{ route('downloads.index') }}" class="service-link">Download Forms <i class="fas fa-chevron-right"></i></a>
                 </div>
 
                 <!-- Service Card 5 -->
@@ -241,7 +244,7 @@
                     </div>
                     <h3>E-Downloads & Citizen Forms</h3>
                     <p>Access downloadable prescribed application forms for lodging land claims, requesting certified copies of settlement plans, and boundary verifications.</p>
-                    <a href="#downloads" class="service-link">Access Downloads <i class="fas fa-chevron-right"></i></a>
+                    <a href="{{ route('downloads.index') }}" class="service-link">Access Downloads <i class="fas fa-chevron-right"></i></a>
                 </div>
 
                 <!-- Service Card 6 -->
