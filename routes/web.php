@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\DownloadsController;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\ContactController;
 
 
 /*
@@ -45,3 +46,6 @@ Route::get('/media-gallery', [MediaController::class, 'index'])->name('media.ind
 
 // Forms and Downloads routes
 Route::get('/forms-and-downloads', [DownloadsController::class, 'index'])->name('downloads.index');
+
+// Contact routes
+Route::get('/contact-us', [ContactController::class, 'index'])->name('contact.index');

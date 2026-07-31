@@ -58,6 +58,14 @@
                 <li><a href="{{ route('news.index') }}" class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}">News and Events</a></li>
                 <li><a href="{{ route('media.index') }}" class="nav-link {{ request()->routeIs('media.*') ? 'active' : '' }}">Media Gallery</a></li>
                 <li><a href="{{ route('downloads.index') }}" class="nav-link {{ request()->routeIs('downloads.*') ? 'active' : '' }}">Forms &amp; Downloads</a></li>
+                <li class="nav-dropdown nav-contact {{ request()->routeIs('contact.*') ? 'active' : '' }}">
+                    <button type="button" class="nav-link nav-dropdown-toggle {{ request()->routeIs('contact.*') ? 'active' : '' }}">Contact Us <i class="fas fa-chevron-down"></i></button>
+                    <ul class="nav-dropdown-menu">
+                        <li><a href="{{ route('contact.index') }}#inquiry">Inquiry</a></li>
+                        <li><a href="{{ route('contact.index') }}#head-office">Head Office</a></li>
+                        <li><a href="{{ route('contact.index') }}#regional-office">Regional Office</a></li>
+                    </ul>
+                </li>
                 <li><a href="{{ url('/#faqs') }}" class="nav-link">FAQs</a></li>
             </ul>
 
