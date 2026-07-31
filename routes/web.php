@@ -1,6 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< Updated upstream
+=======
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\DownloadsController;
+use App\Http\Controllers\MediaController;
+use App\Http\Controllers\ContactController;
+
+>>>>>>> Stashed changes
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +37,21 @@ Route::get('/about', function () {
 Route::get('/users', function () {
     return ('Users');
 });
+<<<<<<< Updated upstream
+=======
+
+
+
+// News and Events routes
+Route::get('/news-and-events', [NewsController::class, 'index'])->name('news.index');
+Route::get('/news-and-events/{id}', [NewsController::class, 'show'])->name('news.show');
+
+// Media Gallery routes
+Route::get('/media-gallery', [MediaController::class, 'index'])->name('media.index');
+
+// Contact Us routes
+Route::get('/contact-us', [ContactController::class, 'index'])->name('contact.index');
+
+// Forms and Downloads routes
+Route::get('/forms-and-downloads', [DownloadsController::class, 'index'])->name('downloads.index');
+>>>>>>> Stashed changes
