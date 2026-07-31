@@ -112,6 +112,44 @@
         </div>
     </div>
 
-    <!-- rest of content omitted for brevity -->
+    <!-- 5. FAQs -->
+    <section id="faqs" class="section section-faqs">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-sub">Common questions about land settlement and Bimsaviya services.</p>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="(function(h){var item=h.closest('.accordion-item');var items=document.querySelectorAll('.accordion-item');items.forEach(function(i){i.classList.remove('active');}); if(!item.classList.contains('active')) item.classList.add('active');})(this)">
+                        What is Bimsaviya and how do I check my title status?
+                        <span class="accordion-icon">&#9660;</span>
+                    </button>
+                    <div class="accordion-body">
+                        Bimsaviya is the national land titling program. Use the "Track Title Status" button in the header or the Quick Title Search to check your application using your NIC or reference number.
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="(function(h){var item=h.closest('.accordion-item');var items=document.querySelectorAll('.accordion-item');items.forEach(function(i){i.classList.remove('active');}); if(!item.classList.contains('active')) item.classList.add('active');})(this)">
+                        How can I obtain official forms and application templates?
+                        <span class="accordion-icon">&#9660;</span>
+                    </button>
+                    <div class="accordion-body">
+                        Visit the "Forms & Downloads" page via the navigation to download application forms, guidelines and circulars. For physical copies, contact your regional office.
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="(function(h){var item=h.closest('.accordion-item');var items=document.querySelectorAll('.accordion-item');items.forEach(function(i){i.classList.remove('active');}); if(!item.classList.contains('active')) item.classList.add('active');})(this)">
+                        Who do I contact for regional settlement enquiries?
+                        <span class="accordion-icon">&#9660;</span>
+                    </button>
+                    <div class="accordion-body">
+                        See the <a href="{{ route('contact.index') }}#regional-office">Regional Offices</a> section on the Contact page for phone and email details.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 @endsection

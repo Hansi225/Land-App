@@ -133,6 +133,32 @@
             </div>
         </div>
     </footer>
+</footer>
+
+<!-- Inline fallback: ensure FAQ accordion works even if compiled JS didn't attach -->
+<script>
+    (function(){
+        function initFallbackAccordions(){
+            var items = document.querySelectorAll('.accordion-item');
+            if(!items.length) return;
+            items.forEach(function(item){
+                var header = item.querySelector('.accordion-header');
+                if(!header) return;
+                header.addEventListener('click', function(){
+                    var isActive = item.classList.contains('active');
+                    items.forEach(function(i){ i.classList.remove('active'); });
+                    if(!isActive) item.classList.add('active');
+                });
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initFallbackAccordions);
+        } else {
+            initFallbackAccordions();
+        }
+    })();
+</script>
 
 </body>
 </html>
