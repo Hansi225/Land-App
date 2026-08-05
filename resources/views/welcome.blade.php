@@ -97,7 +97,37 @@
         </div>
     </div>
 
-    <!-- 5. FAQs -->
+        <!-- 5. Latest News & Events -->
+        <section id="latest-news" class="section">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">News</span>
+                    <h2 class="section-title">Latest News & Events</h2>
+                    <p class="section-subtitle">Recent notices and announcements from the Department.</p>
+                </div>
+
+                <div class="services-grid">
+                    @php
+                        $latest = [
+                            ['id' => 1, 'title' => 'New Land Registration Process', 'date' => '2026-07-20', 'summary' => 'Details about the updated registration process and how it affects applicants.'],
+                            ['id' => 2, 'title' => 'Public Notice: Office Closure', 'date' => '2026-07-15', 'summary' => 'Our offices will be closed on the following dates due to public holidays.'],
+                            ['id' => 3, 'title' => 'Bimsaviya Outreach Program', 'date' => '2026-06-28', 'summary' => 'Community outreach and registration camps scheduled across districts.'],
+                        ];
+                    @endphp
+
+                    @foreach ($latest as $item)
+                        <div class="service-card">
+                            <h3>{{ $item['title'] }}</h3>
+                            <p class="date" style="opacity:0.75; font-size:0.9rem; margin-bottom:0.6rem">{{ $item['date'] }}</p>
+                            <p style="margin-bottom:1.25rem">{{ $item['summary'] }}</p>
+                            <a href="{{ route('news.index') }}" class="service-link">Read more <i class="fas fa-chevron-right"></i></a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. FAQs -->
     <section id="faqs" class="section section-faqs">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
