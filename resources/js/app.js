@@ -64,143 +64,87 @@ document.addEventListener('DOMContentLoaded', () => {
   initAccordions();
   initGazetteFilter();
   initOfficeFilter();
-  initNavSearch();
+  initTrackerModal();
+  initRelatedCarousel();
+  initNavSearchToggle();
 });
 
-// Navigation keyword search
-function initNavSearch() {
+// Nav search toggle
+function initNavSearchToggle() {
+  const toggle = document.getElementById('navSearchToggle');
   const form = document.getElementById('navSearchForm');
   const input = document.getElementById('navSearchInput');
-  if (!form || !input) return;
-  const resultsBox = document.getElementById('navSearchResults');
+  if (!toggle || !form) return;
 
-  const map = {
-    'home': '/',
-    'index': '/',
-    'about': '/about',
-    'department': '/about',
-    'news': '/news',
-    'events': '/news',
-    'media': '/media',
-    'gallery': '/media',
-    'downloads': '/downloads',
-    'forms': '/downloads',
-    'contact': '/contact',
-    'contact us': '/contact',
-    'gazettes': '/#gazettes',
-    'gazette': '/#gazettes',
-    'faq': '/#faqs',
-    'faqs': '/#faqs',
-    'bimsaviya': '/',
-    'tracker': '/',
-  };
-
-  function clearResults() {
-    if (!resultsBox) return;
-    resultsBox.innerHTML = '';
-    resultsBox.style.display = 'none';
+  function open() {
+    form.classList.add('active');
+    toggle.setAttribute('aria-expanded', 'true');
+    setTimeout(() => input && input.focus(), 120);
+  }
+  function close() {
+    form.classList.remove('active');
+    toggle.setAttribute('aria-expanded', 'false');
   }
 
-  function renderResults(items, query) {
-    if (!resultsBox) return;
-    resultsBox.innerHTML = '';
-    if (!items || !items.length) {
-      const no = document.createElement('div');
-      no.className = 'nav-search-noresults';
-      no.style.padding = '0.5rem 1rem';
-      no.textContent = 'No matches — try: about, news, downloads, contact';
-      resultsBox.appendChild(no);
-      resultsBox.style.display = 'block';
-      return;
-    }
-
-    if (items.length === 1) {
-      window.location.href = items[0].href;
-      return;
-    }
-
-    const list = document.createElement('div');
-    list.className = 'nav-search-list';
-    items.forEach(it => {
-      const a = document.createElement('a');
-      a.href = it.href;
-      a.textContent = it.label;
-      a.className = 'nav-search-item';
-      a.style.display = 'block';
-      a.style.padding = '0.45rem 1rem';
-      a.style.color = '#0f172a';
-      a.style.textDecoration = 'none';
-      a.addEventListener('click', (ev) => {
-        ev.preventDefault();
-        window.location.href = it.href;
-      });
-      list.appendChild(a);
-    });
-    resultsBox.appendChild(list);
-    resultsBox.style.display = 'block';
-  }
-
-  function findMatches(q) {
-    const found = [];
-    // exact map
-    if (map[q]) {
-      return [{ label: q, href: map[q] }];
-    }
-
-    // check map keys for partial matches
-    Object.keys(map).forEach(k => {
-      if (k.includes(q) || q.includes(k)) {
-        found.push({ label: k, href: map[k] });
-      }
-    });
-
-    // check nav links
-    const links = document.querySelectorAll('#navMenu a');
-    links.forEach(l => {
-      const text = l.textContent.trim();
-      if (!text) return;
-      if (text.toLowerCase().includes(q)) {
-        found.push({ label: text, href: l.getAttribute('href') });
-      }
-    });
-
-    // dedupe by href
-    const seen = new Set();
-    return found.filter(f => {
-      if (seen.has(f.href)) return false;
-      seen.add(f.href);
-      return true;
-    });
-  }
-
-  form.addEventListener('submit', (e) => {
+  toggle.addEventListener('click', (e) => {
     e.preventDefault();
-    const q = input.value.trim().toLowerCase();
-    if (!q) return;
-    const matches = findMatches(q);
-    renderResults(matches, q);
+    if (form.classList.contains('active')) close(); else open();
   });
 
-  input.addEventListener('input', (e) => {
-    const q = e.target.value.trim().toLowerCase();
-    if (!q) { clearResults(); return; }
-    const matches = findMatches(q);
-    renderResults(matches, q);
-  });
-
-  // close results when clicking outside
+  // close when clicking outside
   document.addEventListener('click', (e) => {
-    if (!resultsBox) return;
-    if (form.contains(e.target)) return;
-    clearResults();
+    if (!form.contains(e.target) && !toggle.contains(e.target)) close();
   });
+
+  // close on escape
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+}
+
+// Related websites carousel
+function initRelatedCarousel() {
+  const track = document.querySelector('.related-carousel-track');
+  if (!track) return;
+  const container = document.querySelector('.related-carousel');
+  const items = track.querySelectorAll('.carousel-item');
+  if (!items.length) return;
+
+  let index = 0;
+  const itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(track).gap || 16);
+  let interval = null;
+
+  function start() {
+    if (interval) return;
+    interval = setInterval(() => {
+      index++;
+      if (index >= items.length) {
+        // reset to start smoothly
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+        index = 0;
+        return;
+      }
+      track.scrollBy({ left: itemWidth, behavior: 'smooth' });
+    }, 3000);
+  }
+
+  function stop() {
+    if (interval) { clearInterval(interval); interval = null; }
+  }
+
+  container.addEventListener('mouseenter', stop);
+  container.addEventListener('mouseleave', start);
+  // touch support: pause while touching
+  container.addEventListener('touchstart', stop);
+  container.addEventListener('touchend', start);
+
+  // start auto-scroll if more items than visible
+  start();
 }
 
 // Theme Management
 function initTheme() {
   const toggleBtn = document.getElementById('themeToggle');
   const savedTheme = localStorage.getItem('land_app_theme') || 'light';
-  
+
   document.documentElement.setAttribute('data-theme', savedTheme);
   updateThemeIcon(savedTheme);
 
@@ -290,7 +234,7 @@ function initGazetteFilter() {
     rows.forEach(row => {
       const text = row.textContent.toLowerCase();
       const rowDistrict = row.getAttribute('data-district') || '';
-      
+
       const matchesDistrict = (district === 'all' || rowDistrict === district);
       const matchesQuery = (query === '' || text.includes(query));
 
@@ -371,9 +315,9 @@ function simulateTrackingResult(query) {
   const ownerDisplay = document.getElementById('modalOwnerName');
   const villageDisplay = document.getElementById('modalVillage');
   const statusBadge = document.getElementById('modalStatusBadge');
-  
+
   const sampleRef = query.length > 3 ? query.toUpperCase() : "BMS-2026-78491";
-  
+
   if (refDisplay) refDisplay.textContent = sampleRef;
   if (ownerDisplay) ownerDisplay.textContent = "K. A. Perera & Family";
   if (villageDisplay) villageDisplay.textContent = "Malabe North (Block 04, Cadastral Map 310052)";

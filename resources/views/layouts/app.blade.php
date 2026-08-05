@@ -52,29 +52,32 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="{{ url('/#home') }}" class="nav-link" data-i18n="navHome">Home</a></li>
                 <li><a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" data-i18n="navAbout">About Us</a></li>
-                
+
                 <li><a href="{{ url('/#gazettes') }}" class="nav-link" data-i18n="navGazettes">Gazettes</a></li>
-                
-                
+
+                <li><a href="{{ route('news.index') }}" class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}">News and Events</a></li>
                 <li><a href="{{ route('media.index') }}" class="nav-link {{ request()->routeIs('media.*') ? 'active' : '' }}">Gallery</a></li>
                 <li><a href="{{ route('downloads.index') }}" class="nav-link {{ request()->routeIs('downloads.*') ? 'active' : '' }}">Downloads</a></li>
-                <li class="nav-dropdown nav-contact {{ request()->routeIs('contact.*') ? 'active' : '' }}">
-                    <a href="{{ route('contact.index') }}" class="nav-link nav-dropdown-toggle {{ request()->routeIs('contact.*') ? 'active' : '' }}">Contact Us <i class="fas fa-chevron-down"></i></a>
-                    <ul class="nav-dropdown-menu">
-                        <li><a href="{{ route('contact.index') }}#inquiry">Inquiry</a></li>
-                        <li><a href="{{ route('contact.index') }}#head-office">Head Office</a></li>
-                        <li><a href="{{ route('contact.index') }}#regional-office">Regional Office</a></li>
+                <li class="nav-dropdown nav-contact {{ request()->routeIs('contact.*') ? 'active' : '' }}" tabindex="0">
+                    <button type="button" class="nav-link nav-dropdown-toggle {{ request()->routeIs('contact.*') ? 'active' : '' }}">Contact Us <i class="fas fa-chevron-down"></i></button>
+                    <ul class="nav-dropdown-menu" aria-label="Contact submenu">
+                        <li><a class="contact-pill" href="{{ route('contact.index') }}#inquiry">Inquiry</a></li>
+                        <li><a class="contact-pill" href="{{ route('contact.index') }}#head-office">Head Office</a></li>
+                        <li><a class="contact-pill" href="{{ route('contact.index') }}#regional-office">Regional Office</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ url('/#faqs') }}" class="nav-link">FAQs</a></li>
             </ul>
 
             <div class="nav-actions">
-                <form id="navSearchForm" class="nav-search-form" onsubmit="return false;" style="position:relative;">
-                    <input type="search" id="navSearchInput" class="nav-search-input" placeholder="Find pages by keyword" aria-label="Site search" autocomplete="off">
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
-                    <div id="navSearchResults" class="nav-search-results" aria-live="polite" style="position:absolute; right:0; top:44px; background:#fff; border:1px solid rgba(0,0,0,0.08); box-shadow:0 6px 18px rgba(0,0,0,0.06); padding:0.35rem 0; min-width:220px; z-index:1200; display:none;"></div>
-                </form>
+                <div class="nav-search">
+                    <button class="search-toggle" id="navSearchToggle" aria-expanded="false" aria-controls="navSearchForm">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <form id="navSearchForm" class="nav-search-form" action="{{ url('/search') }}" method="GET" role="search">
+                        <input id="navSearchInput" name="q" class="search-input" type="search" placeholder="Search site..." aria-label="Search site">
+                    </form>
+                </div>
                 <button class="mobile-toggle" id="mobileToggle">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -83,6 +86,42 @@
     </nav>
 
     @yield('content')
+
+    <!-- Related Websites Carousel -->
+    <section id="related-websites" class="section section-alt">
+        <div class="section-container">
+            <div class="section-header">
+                <h3 class="section-title">Related Websites</h3>
+                <p class="section-subtitle">Partner organisations and useful government links.</p>
+            </div>
+
+            <div class="related-carousel" aria-label="Related websites carousel">
+                <div class="related-carousel-track">
+                    @php
+                        $partners = [
+                            ['name' => 'Government Press', 'url' => '#', 'abbr' => 'GP'],
+                            ['name' => 'Dept. of Land Title Settlement', 'url' => '#', 'abbr' => 'DLT'],
+                            ['name' => 'Ministry of Land & Development', 'url' => '#', 'abbr' => 'MLD'],
+                            ['name' => 'Survey Department', 'url' => 'https://www.survey.gov.lk', 'abbr' => 'SD'],
+                            ['name' => 'Land Commissioner General', 'url' => 'https://www.landcom.gov.lk', 'abbr' => 'LCG'],
+                        ];
+                    @endphp
+
+                    @foreach ($partners as $p)
+                        <a class="carousel-item" href="{{ $p['url'] }}" target="_blank" rel="noopener">
+                            <div class="carousel-logo" role="img" aria-label="{{ $p['name'] }} logo">
+                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <circle cx="50" cy="50" r="48" fill="#F4FAF7" stroke="#D6E8DF" stroke-width="2" />
+                                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Sans-serif" font-size="30" fill="#15803D">{{ $p['abbr'] }}</text>
+                                </svg>
+                            </div>
+                            <div class="carousel-caption">{{ $p['name'] }}</div>
+                        </a>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer class="footer">
         <div class="footer-container">
@@ -101,11 +140,11 @@
                 <ul class="footer-links">
                     <li><a href="{{ url('/#home') }}">Home</a></li>
                     <li><a href="{{ route('about') }}">About Department</a></li>
-                    
-                    
+
+                    <li><a href="{{ route('news.index') }}">News and Events</a></li>
                     <li><a href="{{ route('media.index') }}">Gallery</a></li>
                     <li><a href="{{ route('downloads.index') }}">Downloads</a></li>
-                    
+
                 </ul>
             </div>
 

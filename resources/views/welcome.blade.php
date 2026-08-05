@@ -7,6 +7,28 @@
     <!-- 3. Hero Section -->
     <section class="hero" id="home">
         <div class="hero-pattern"></div>
+        <div class="hero-bg-shapes" aria-hidden="true">
+            <!-- Abstract map silhouette -->
+            <svg class="hero-shape shape-map" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                <path d="M0 120 C70 40 180 10 280 30 C380 50 470 120 560 110 C660 100 760 60 800 40 L800 400 L0 400 Z" fill="var(--primary-xxlight)" />
+            </svg>
+
+            <!-- Decorative wave -->
+            <svg class="hero-shape shape-wave" viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                <path d="M0 80 C120 0 240 140 360 80 C480 20 600 120 600 120 L600 200 L0 200 Z" fill="rgba(234, 170, 32, 0.06)" />
+            </svg>
+
+            <!-- Dotted accent -->
+            <svg class="hero-shape shape-dots" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                <g fill="var(--primary-xlight)">
+                    <circle cx="20" cy="20" r="3" />
+                    <circle cx="50" cy="30" r="2.5" />
+                    <circle cx="80" cy="40" r="2" />
+                    <circle cx="110" cy="55" r="2.5" />
+                    <circle cx="140" cy="80" r="3" />
+                </g>
+            </svg>
+        </div>
         <div class="hero-container">
             <div class="hero-content">
                 <div class="hero-badge">
@@ -78,7 +100,7 @@
     <!-- 4. Quick Access Shortcut Banner -->
     <div class="quick-access-banner">
         <div class="quick-grid">
-            
+
             <a href="#gazettes" class="quick-card">
                 <div class="quick-icon"><i class="fas fa-scroll"></i></div>
                 <div class="quick-info">
@@ -93,41 +115,11 @@
                     <p>Claim applications & circulars</p>
                 </div>
             </a>
-            
+
         </div>
     </div>
 
-        <!-- 5. Latest News & Events -->
-        <section id="latest-news" class="section">
-            <div class="section-container">
-                <div class="section-header">
-                    <span class="section-tag">News</span>
-                    <h2 class="section-title">Latest News & Events</h2>
-                    <p class="section-subtitle">Recent notices and announcements from the Department.</p>
-                </div>
-
-                <div class="services-grid">
-                    @php
-                        $latest = [
-                            ['id' => 1, 'title' => 'New Land Registration Process', 'date' => '2026-07-20', 'summary' => 'Details about the updated registration process and how it affects applicants.'],
-                            ['id' => 2, 'title' => 'Public Notice: Office Closure', 'date' => '2026-07-15', 'summary' => 'Our offices will be closed on the following dates due to public holidays.'],
-                            ['id' => 3, 'title' => 'Bimsaviya Outreach Program', 'date' => '2026-06-28', 'summary' => 'Community outreach and registration camps scheduled across districts.'],
-                        ];
-                    @endphp
-
-                    @foreach ($latest as $item)
-                        <div class="service-card">
-                            <h3>{{ $item['title'] }}</h3>
-                            <p class="date" style="opacity:0.75; font-size:0.9rem; margin-bottom:0.6rem">{{ $item['date'] }}</p>
-                            <p style="margin-bottom:1.25rem">{{ $item['summary'] }}</p>
-                            <a href="{{ route('news.index') }}" class="service-link">Read more <i class="fas fa-chevron-right"></i></a>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. FAQs -->
+    <!-- 5. FAQs -->
     <section id="faqs" class="section section-faqs">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
