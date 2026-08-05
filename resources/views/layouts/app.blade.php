@@ -28,6 +28,7 @@
                 <button class="lang-btn" data-lang="si">සිංහල</button>
                 <button class="lang-btn" data-lang="ta">தமிழ்</button>
             </div>
+            <a href="{{ route('find') }}" class="btn btn-outline" style="margin-right:0.6rem;">Find</a>
             <button class="theme-toggle" id="themeToggle" title="Toggle Light/Dark Mode">
                 <i class="fas fa-moon" id="themeIcon"></i>
             </button>
