@@ -93,13 +93,7 @@
                     <p>Claim applications & circulars</p>
                 </div>
             </a>
-            <a href="#offices" class="quick-card">
-                <div class="quick-icon"><i class="fas fa-map-marker-alt"></i></div>
-                <div class="quick-info">
-                    <h4>Regional Offices</h4>
-                    <p>Find your nearest district office</p>
-                </div>
-            </a>
+            
         </div>
     </div>
 
