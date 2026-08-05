@@ -94,20 +94,18 @@
                     @php
                         $partners = [
                             ['name' => 'Government Press', 'url' => '#', 'abbr' => 'GP'],
-                            ['name' => 'Dept. of Land Title Settlement', 'url' => '#', 'abbr' => 'DLT'],
-                            ['name' => 'Ministry of Land & Development', 'url' => '#', 'abbr' => 'MLD'],
-                            ['name' => 'Survey Department', 'url' => 'https://www.survey.gov.lk', 'abbr' => 'SD'],
+                            ['name' => 'Dept. of Land Title Settlement', 'url' => '#', 'abbr' => 'landTitle.jpg'],
+                            ['name' => 'Ministry of Land & Development', 'url' => '#', 'abbr' => 'land.png'],
+                            ['name' => 'Survey Department', 'url' => 'https://www.survey.gov.lk', 'abbr' => 'survay.png'],
                             ['name' => 'Land Commissioner General', 'url' => 'https://www.landcom.gov.lk', 'abbr' => 'LCG'],
                         ];
                     @endphp
 
+
                     @foreach ($partners as $p)
                         <a class="carousel-item" href="{{ $p['url'] }}" target="_blank" rel="noopener">
                             <div class="carousel-logo" role="img" aria-label="{{ $p['name'] }} logo">
-                                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <circle cx="50" cy="50" r="48" fill="#F4FAF7" stroke="#D6E8DF" stroke-width="2" />
-                                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Sans-serif" font-size="30" fill="#15803D">{{ $p['abbr'] }}</text>
-                                </svg>
+                                <img src="{{ asset('img/'.$p['abbr']) }}" alt="" srcset="" width="150px">
                             </div>
                             <div class="carousel-caption">{{ $p['name'] }}</div>
                         </a>
