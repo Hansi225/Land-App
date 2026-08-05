@@ -70,14 +70,7 @@
             </ul>
 
             <div class="nav-actions">
-                <div class="nav-search">
-                    <button class="search-toggle" id="navSearchToggle" aria-expanded="false" aria-controls="navSearchForm">
-                        <i class="fas fa-search"></i>
-                    </button>
-                    <form id="navSearchForm" class="nav-search-form" action="{{ url('/search') }}" method="GET" role="search">
-                        <input id="navSearchInput" name="q" class="search-input" type="search" placeholder="Search site..." aria-label="Search site">
-                    </form>
-                </div>
+                <a href="{{ route('find') }}" class="btn btn-outline" style="margin-right:0.5rem;">Find</a>
                 <button class="mobile-toggle" id="mobileToggle">
                     <i class="fas fa-bars"></i>
                 </button>

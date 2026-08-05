@@ -5,6 +5,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\DownloadsController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ContactController;
+use Illuminate\Http\Request;
 
 
 /*
@@ -49,3 +50,27 @@ Route::get('/forms-and-downloads', [DownloadsController::class, 'index'])->name(
 
 // Contact routes
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact.index');
+
+// Find page (GET shows form; POST returns simulated result)
+Route::match(['get','post'], '/find', function(Request $request) {
+    if ($request->isMethod('post')) {
+        $map = $request->input('map_number');
+        $block = $request->input('block_number');
+        $sheet = $request->input('sheet_number');
+        $lot = $request->input('lot_number');
+
+        $query = compact('map','block','sheet','lot');
+
+        $result = [
+            'name' => 'K. A. Perera',
+            'size' => '0.75 ha',
+            'current_stage' => 'Public Hearing & Claims Investigation',
+            'file_number' => 'BMS-2026-78491',
+            'gazette_number' => 'GZ-2021-0456',
+            'gazetted_date' => '2021-06-15',
+        ];
+
+        return view('find', compact('query','result'));
+    }
+    return view('find');
+})->name('find');
