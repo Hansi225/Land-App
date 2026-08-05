@@ -52,7 +52,7 @@
             <ul class="nav-menu" id="navMenu">
                 <li><a href="{{ url('/#home') }}" class="nav-link" data-i18n="navHome">Home</a></li>
                 <li><a href="{{ route('about') }}" class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" data-i18n="navAbout">About Us</a></li>
-                <li><a href="{{ url('/#services') }}" class="nav-link" data-i18n="navServices">Services</a></li>
+                
                 <li><a href="{{ url('/#gazettes') }}" class="nav-link" data-i18n="navGazettes">Gazettes</a></li>
                 <li><a href="{{ url('/#offices') }}" class="nav-link" data-i18n="navOffices">Regional Offices</a></li>
                 <li><a href="{{ route('news.index') }}" class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}">News and Events</a></li>
@@ -99,7 +99,7 @@
                 <ul class="footer-links">
                     <li><a href="{{ url('/#home') }}">Home</a></li>
                     <li><a href="{{ route('about') }}">About Department</a></li>
-                    <li><a href="{{ url('/#services') }}">Bimsaviya Program</a></li>
+                    
                     <li><a href="{{ route('news.index') }}">News and Events</a></li>
                     <li><a href="{{ route('media.index') }}">Media Gallery</a></li>
                     <li><a href="{{ route('downloads.index') }}">Forms &amp; Downloads</a></li>

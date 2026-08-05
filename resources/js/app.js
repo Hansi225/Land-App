@@ -5,7 +5,6 @@ const translations = {
   en: {
     navHome: "Home",
     navAbout: "About Us",
-    navServices: "Services",
     navGazettes: "Gazettes",
     navOffices: "Regional Offices",
     navContact: "Contact",
@@ -24,7 +23,6 @@ const translations = {
   si: {
     navHome: "මුල් පිටුව",
     navAbout: "අප ගැන",
-    navServices: "සේවාවන්",
     navGazettes: "ගැසට් නිවේදන",
     navOffices: "ප්‍රාදේශීය කාර්යාල",
     navContact: "සම්බන්ධ වන්න",
@@ -43,7 +41,6 @@ const translations = {
   ta: {
     navHome: "முகப்பு",
     navAbout: "எங்களைப் பற்றி",
-    navServices: "சேவைகள்",
     navGazettes: "வர்த்தமானிகள்",
     navOffices: "பிராந்திய அலுவலகங்கள்",
     navContact: "தொடர்புகொள்ள",

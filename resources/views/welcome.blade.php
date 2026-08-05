@@ -20,9 +20,6 @@
                     Empowering Sri Lanka through guaranteed land title ownership, transparent land settlement procedures, and digital Bimsaviya services under the Registration of Title Act No. 21 of 1998.
                 </p>
                 <div class="hero-actions">
-                    <a href="#services" class="btn btn-primary">
-                        <i class="fas fa-th-large"></i> Explore Citizen Services
-                    </a>
                     <a href="#gazettes" class="btn btn-secondary">
                         <i class="fas fa-file-alt"></i> Latest Settlement Gazettes
                     </a>
@@ -81,13 +78,7 @@
     <!-- 4. Quick Access Shortcut Banner -->
     <div class="quick-access-banner">
         <div class="quick-grid">
-            <a href="#services" class="quick-card trigger-tracker">
-                <div class="quick-icon"><i class="fas fa-certificate"></i></div>
-                <div class="quick-info">
-                    <h4>Bimsaviya Title Search</h4>
-                    <p>Verify guaranteed title status</p>
-                </div>
-            </a>
+            
             <a href="#gazettes" class="quick-card">
                 <div class="quick-icon"><i class="fas fa-scroll"></i></div>
                 <div class="quick-info">
