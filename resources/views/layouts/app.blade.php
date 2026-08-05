@@ -56,8 +56,8 @@
                 <li><a href="{{ url('/#gazettes') }}" class="nav-link" data-i18n="navGazettes">Gazettes</a></li>
                 
                 <li><a href="{{ route('news.index') }}" class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}">News and Events</a></li>
-                <li><a href="{{ route('media.index') }}" class="nav-link {{ request()->routeIs('media.*') ? 'active' : '' }}">Media Gallery</a></li>
-                <li><a href="{{ route('downloads.index') }}" class="nav-link {{ request()->routeIs('downloads.*') ? 'active' : '' }}">Forms &amp; Downloads</a></li>
+                <li><a href="{{ route('media.index') }}" class="nav-link {{ request()->routeIs('media.*') ? 'active' : '' }}">Gallery</a></li>
+                <li><a href="{{ route('downloads.index') }}" class="nav-link {{ request()->routeIs('downloads.*') ? 'active' : '' }}">Downloads</a></li>
                 <li class="nav-dropdown nav-contact {{ request()->routeIs('contact.*') ? 'active' : '' }}">
                     <button type="button" class="nav-link nav-dropdown-toggle {{ request()->routeIs('contact.*') ? 'active' : '' }}">Contact Us <i class="fas fa-chevron-down"></i></button>
                     <ul class="nav-dropdown-menu">
@@ -70,9 +70,11 @@
             </ul>
 
             <div class="nav-actions">
-                <button class="btn btn-primary trigger-tracker">
-                    <i class="fas fa-search-location"></i> <span data-i18n="btnTrack">Track Title Status</span>
-                </button>
+                <form id="navSearchForm" class="nav-search-form" onsubmit="return false;" style="position:relative;">
+                    <input type="search" id="navSearchInput" class="nav-search-input" placeholder="Find pages by keyword" aria-label="Site search" autocomplete="off">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                    <div id="navSearchResults" class="nav-search-results" aria-live="polite" style="position:absolute; right:0; top:44px; background:#fff; border:1px solid rgba(0,0,0,0.08); box-shadow:0 6px 18px rgba(0,0,0,0.06); padding:0.35rem 0; min-width:220px; z-index:1200; display:none;"></div>
+                </form>
                 <button class="mobile-toggle" id="mobileToggle">
                     <i class="fas fa-bars"></i>
                 </button>
@@ -101,8 +103,8 @@
                     <li><a href="{{ route('about') }}">About Department</a></li>
                     
                     <li><a href="{{ route('news.index') }}">News and Events</a></li>
-                    <li><a href="{{ route('media.index') }}">Media Gallery</a></li>
-                    <li><a href="{{ route('downloads.index') }}">Forms &amp; Downloads</a></li>
+                    <li><a href="{{ route('media.index') }}">Gallery</a></li>
+                    <li><a href="{{ route('downloads.index') }}">Downloads</a></li>
                     
                 </ul>
             </div>

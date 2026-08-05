@@ -89,7 +89,7 @@
             <a href="#downloads" class="quick-card">
                 <div class="quick-icon"><i class="fas fa-file-download"></i></div>
                 <div class="quick-info">
-                    <h4>Forms & Downloads</h4>
+                    <h4>Downloads</h4>
                     <p>Claim applications & circulars</p>
                 </div>
             </a>
