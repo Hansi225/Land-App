@@ -28,7 +28,6 @@
                 <button class="lang-btn" data-lang="si">සිංහල</button>
                 <button class="lang-btn" data-lang="ta">தமிழ்</button>
             </div>
-            <a href="{{ route('find') }}" class="nav-link">Find</a>
             <button class="theme-toggle" id="themeToggle" title="Toggle Light/Dark Mode">
                 <i class="fas fa-moon" id="themeIcon"></i>
             </button>
@@ -68,8 +67,6 @@
                     </ul>
                 </li>
                 <li><a href="{{ url('/#faqs') }}" class="nav-link">FAQs</a></li>
-            </ul>
-
                 <li><a href="{{ route('find') }}" class="nav-link">Find</a></li>
             </ul>
 
