@@ -589,12 +589,20 @@ body {
 }
 
 /* Related websites carousel */
-.related-carousel { overflow: hidden; padding: 1rem 0 0; }
+.related-carousel {
+  overflow: hidden;
+  padding: 1rem 0 0;
+}
 .related-carousel-track {
   display: flex;
   gap: 1rem;
   align-items: center;
-  transition: transform 0.6s ease;
+  width: max-content;
+  animation: scroll-left-to-right var(--carousel-duration, 22s) linear infinite;
+  will-change: transform;
+}
+.related-carousel:hover .related-carousel-track {
+  animation-play-state: paused;
 }
 .carousel-item {
   display: flex;
@@ -616,6 +624,11 @@ body {
 .carousel-logo { width: 84px; height: 84px; display:flex; align-items:center; justify-content:center; margin-bottom:0.6rem; }
 .carousel-logo svg { width: 84px; height:84px; display:block; }
 .carousel-caption { font-weight:700; font-size:0.9rem; text-align:center; color:var(--text-main); }
+
+@keyframes scroll-left-to-right {
+  from { transform: translateX(0); }
+  to { transform: translateX(var(--scroll-distance, -1000px)); }
+}
 
 @media (max-width: 800px) {
   .carousel-item { min-width: 160px; max-width: 180px; }

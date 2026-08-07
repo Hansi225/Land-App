@@ -90,20 +90,28 @@
             </div>
 
             <div class="related-carousel" aria-label="Related websites carousel">
+                @php
+                    $partners = [
+                        ['name' => 'Government Press', 'url' => 'https://media.gov.lk', 'abbr' => 'press.jpg'],
+                        ['name' => 'Dept. of Land Title Settlement', 'url' => 'http://www.landsettledept.gov.lk', 'abbr' => 'landTitle.jpg'],
+                        ['name' => 'Ministry of Land & Development', 'url' => 'https://landmin.gov.lk', 'abbr' => 'land.png'],
+                        ['name' => 'Survey Department', 'url' => 'https://www.survey.gov.lk', 'abbr' => 'survay.png'],
+                        ['name' => 'Land Commissioner General', 'url' => 'https://www.landcom.gov.lk', 'abbr' => 'comissioner.jpg'],
+                    ];
+                @endphp
+
                 <div class="related-carousel-track">
-                    @php
-                        $partners = [
-                            ['name' => 'Government Press', 'url' => '#', 'abbr' => 'GP'],
-                            ['name' => 'Dept. of Land Title Settlement', 'url' => '#', 'abbr' => 'landTitle.jpg'],
-                            ['name' => 'Ministry of Land & Development', 'url' => '#', 'abbr' => 'land.png'],
-                            ['name' => 'Survey Department', 'url' => 'https://www.survey.gov.lk', 'abbr' => 'survay.png'],
-                            ['name' => 'Land Commissioner General', 'url' => 'https://www.landcom.gov.lk', 'abbr' => 'LCG'],
-                        ];
-                    @endphp
-
-
                     @foreach ($partners as $p)
                         <a class="carousel-item" href="{{ $p['url'] }}" target="_blank" rel="noopener">
+                            <div class="carousel-logo" role="img" aria-label="{{ $p['name'] }} logo">
+                                <img src="{{ asset('img/'.$p['abbr']) }}" alt="" srcset="" width="150px">
+                            </div>
+                            <div class="carousel-caption">{{ $p['name'] }}</div>
+                        </a>
+                    @endforeach
+
+                    @foreach ($partners as $p)
+                        <a class="carousel-item" href="{{ $p['url'] }}" target="_blank" rel="noopener" aria-hidden="true">
                             <div class="carousel-logo" role="img" aria-label="{{ $p['name'] }} logo">
                                 <img src="{{ asset('img/'.$p['abbr']) }}" alt="" srcset="" width="150px">
                             </div>

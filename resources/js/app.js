@@ -103,41 +103,31 @@ function initNavSearchToggle() {
 // Related websites carousel
 function initRelatedCarousel() {
   const track = document.querySelector('.related-carousel-track');
-  if (!track) return;
   const container = document.querySelector('.related-carousel');
-  const items = track.querySelectorAll('.carousel-item');
+  if (!track || !container) return;
+
+  const items = Array.from(track.querySelectorAll('.carousel-item'));
   if (!items.length) return;
 
-  let index = 0;
-  const itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(track).gap || 16);
-  let interval = null;
+  const firstSetItems = items.slice(0, Math.ceil(items.length / 2));
+  if (!firstSetItems.length) return;
 
-  function start() {
-    if (interval) return;
-    interval = setInterval(() => {
-      index++;
-      if (index >= items.length) {
-        // reset to start smoothly
-        track.scrollTo({ left: 0, behavior: 'smooth' });
-        index = 0;
-        return;
-      }
-      track.scrollBy({ left: itemWidth, behavior: 'smooth' });
-    }, 3000);
-  }
+  const gap = parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 0);
+  const firstSetWidth = firstSetItems.reduce((total, item) => {
+    return total + item.getBoundingClientRect().width;
+  }, 0);
 
-  function stop() {
-    if (interval) { clearInterval(interval); interval = null; }
-  }
+  const distance = firstSetWidth + gap * (firstSetItems.length - 1) + gap;
+  track.style.setProperty('--scroll-distance', `-${Math.ceil(distance)}px`);
+  track.style.setProperty('--carousel-duration', `${Math.max(16, firstSetItems.length * 2.4)}s`);
 
-  container.addEventListener('mouseenter', stop);
-  container.addEventListener('mouseleave', start);
-  // touch support: pause while touching
-  container.addEventListener('touchstart', stop);
-  container.addEventListener('touchend', start);
+  const pause = () => track.classList.add('is-paused');
+  const resume = () => track.classList.remove('is-paused');
 
-  // start auto-scroll if more items than visible
-  start();
+  container.addEventListener('mouseenter', pause);
+  container.addEventListener('mouseleave', resume);
+  container.addEventListener('touchstart', pause);
+  container.addEventListener('touchend', resume);
 }
 
 // Theme Management
