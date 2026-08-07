@@ -71,7 +71,7 @@
             </ul>
 
             <div class="nav-actions">
-                <a href="{{ route('find') }}" class="btn btn-outline" style="margin-right:0.5rem;">Find</a>
+                <a href="{{ route('find') }}" class="nav-link">Find</a>
                 <button class="mobile-toggle" id="mobileToggle">
                     <i class="fas fa-bars"></i>
                 </button>
