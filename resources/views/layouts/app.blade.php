@@ -22,12 +22,13 @@
             <span>|</span>
             <span><i class="fas fa-phone-alt"></i> Hotline: <strong>1919</strong> / +94 11 2866631</span>
         </div>
-            <div class="top-bar-right">
+        <div class="top-bar-right">
             <div class="lang-selector">
                 <button class="lang-btn active" data-lang="en">EN</button>
                 <button class="lang-btn" data-lang="si">සිංහල</button>
                 <button class="lang-btn" data-lang="ta">தமிழ்</button>
             </div>
+            <a href="{{ route('find') }}" class="btn btn-outline" style="margin-right:0.6rem;">Find</a>
             <button class="theme-toggle" id="themeToggle" title="Toggle Light/Dark Mode">
                 <i class="fas fa-moon" id="themeIcon"></i>
             </button>
@@ -67,10 +68,10 @@
                     </ul>
                 </li>
                 <li><a href="{{ url('/#faqs') }}" class="nav-link">FAQs</a></li>
-                <li><a href="{{ route('find') }}" class="nav-link">Find</a></li>
             </ul>
 
             <div class="nav-actions">
+                <a href="{{ route('find') }}" class="btn btn-outline" style="margin-right:0.5rem;">Find</a>
                 <button class="mobile-toggle" id="mobileToggle">
                     <i class="fas fa-bars"></i>
                 </button>
