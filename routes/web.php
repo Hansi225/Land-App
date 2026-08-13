@@ -1,12 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+<<<<<<< Updated upstream
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\DownloadsController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Http\Request;
 
+=======
+>>>>>>> Stashed changes
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +35,29 @@ Route::get('/about', function () {
     return view('About');
 })->name('about');
 
+Route::get('/news-and-events', function () {
+    $newsItems = [
+        [
+            'id' => 1,
+            'title' => 'Land settlement awareness program launched',
+            'date' => '2026-08-01',
+            'summary' => 'A new public outreach program has started to help citizens understand land title settlement procedures.',
+        ],
+        [
+            'id' => 2,
+            'title' => 'Regional office service hours updated',
+            'date' => '2026-07-25',
+            'summary' => 'Selected regional offices now operate with extended service hours for improved access.',
+        ],
+    ];
+
+    return view('news.index', compact('newsItems'));
+})->name('news.index');
+
 Route::get('/users', function () {
     return ('Users');
 });
+<<<<<<< Updated upstream
 
 
 
@@ -74,3 +97,5 @@ Route::match(['get','post'], '/find', function(Request $request) {
     }
     return view('find');
 })->name('find');
+=======
+>>>>>>> Stashed changes
