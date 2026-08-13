@@ -56,7 +56,6 @@
 
                 <li><a href="{{ url('/#gazettes') }}" class="nav-link" data-i18n="navGazettes">Gazettes</a></li>
 
-                <li><a href="{{ route('news.index') }}" class="nav-link {{ request()->routeIs('news.*') ? 'active' : '' }}">News and Events</a></li>
                 <li><a href="{{ route('media.index') }}" class="nav-link {{ request()->routeIs('media.*') ? 'active' : '' }}">Gallery</a></li>
                 <li><a href="{{ route('downloads.index') }}" class="nav-link {{ request()->routeIs('downloads.*') ? 'active' : '' }}">Downloads</a></li>
                 <li class="nav-dropdown nav-contact {{ request()->routeIs('contact.*') ? 'active' : '' }}" tabindex="0">
@@ -141,7 +140,6 @@
                     <li><a href="{{ url('/#home') }}">Home</a></li>
                     <li><a href="{{ route('about') }}">About Department</a></li>
 
-                    <li><a href="{{ route('news.index') }}">News and Events</a></li>
                     <li><a href="{{ route('media.index') }}">Gallery</a></li>
                     <li><a href="{{ route('downloads.index') }}">Downloads</a></li>
 
